@@ -103,7 +103,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
               <p className="font-body-md text-on-surface-variant">A multi-disciplinary approach to organizational health and commercial success, rooted in decade-long experience and a commitment to excellence.</p>
             </div>
             <div className="hidden lg:block text-right">
-              <span className="text-[80px] font-bold text-primary/5 select-none leading-none tracking-tighter">01—03</span>
+              <span className="text-[80px] font-bold text-primary/5 select-none leading-none tracking-tighter">01 - 03</span>
             </div>
           </motion.div>
 

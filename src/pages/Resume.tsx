@@ -4,7 +4,7 @@ import { Download } from 'lucide-react';
 export default function Resume() {
   const experiences = [
     {
-      period: "2021 — Present",
+      period: "2021 - Present",
       company: "Cloud Spaces",
       title: "Lead Product Designer",
       desc: "Spearheading the design transformation of cloud-native infrastructure management. Focused on reducing cognitive load for DevOps engineers through intelligent visualization and proactive system monitoring tools.",
@@ -14,7 +14,7 @@ export default function Resume() {
       ]
     },
     {
-      period: "2018 — 2021",
+      period: "2018 - 2021",
       company: "Off Market Listing",
       title: "Senior UX Strategist",
       desc: "Revolutionized the high-end real estate market by creating a secure, invite-only marketplace for anonymous property transactions. Orchestrated the end-to-end user journey for HNWIs and brokers.",
@@ -24,7 +24,7 @@ export default function Resume() {
       ]
     },
     {
-      period: "2015 — 2018",
+      period: "2015 - 2018",
       company: "Digital Vanguard",
       title: "UX/UI Designer",
       desc: "Collaborated with Fortune 500 clients to digitize legacy workflows. Developed custom internal tools for logistics and supply chain management.",

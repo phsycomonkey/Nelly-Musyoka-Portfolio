@@ -117,11 +117,11 @@ export default function Contact() {
               </div>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <a href="mailto:hello@nellynzula.com" className="group p-6 bg-surface-container rounded-xl flex flex-col gap-4 hover:bg-primary transition-colors duration-300">
+                <a href="mailto:Nmusyoka2023@gmail.com" className="group p-6 bg-surface-container rounded-xl flex flex-col gap-4 hover:bg-primary transition-colors duration-300">
                   <Mail className="w-6 h-6 text-secondary group-hover:text-on-primary transition-colors" />
                   <div>
                     <h4 className="font-label-md text-primary group-hover:text-on-primary uppercase tracking-wider mb-1">Email Me</h4>
-                    <p className="font-body-md text-on-surface-variant group-hover:text-on-primary/80">hello@nellynzula.com</p>
+                    <p className="font-body-md text-on-surface-variant group-hover:text-on-primary/80">Nmusyoka2023@gmail.com</p>
                   </div>
                 </a>
                 <a href="#" className="group p-6 bg-surface-container rounded-xl flex flex-col gap-4 hover:bg-primary transition-colors duration-300">
@@ -138,81 +138,7 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Inquiry Form Section */}
-      <section className="w-full bg-surface-container-low py-16 lg:py-24 border-t border-outline/5">
-        <div className="max-w-[1200px] mx-auto px-5 lg:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <h3 className="font-headline-sm text-primary mb-4 lg:mb-6">Collaboration Inquiry</h3>
-              <p className="font-body-md text-on-surface-variant leading-relaxed">
-                Interested in a larger project or ongoing partnership? I am currently accepting select design leadership and product strategy engagements. 
-              </p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="lg:col-span-2"
-            >
-              <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="flex flex-col gap-2">
-                  <label className="font-label-md text-primary uppercase tracking-widest">Your Name</label>
-                  <input 
-                    required
-                    className="bg-transparent border-b-2 border-primary/20 py-3 px-1 outline-none focus:border-secondary transition-colors text-on-surface font-body-md" 
-                    placeholder="Jane Doe" 
-                    type="text"
-                  />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="font-label-md text-primary uppercase tracking-widest">Email Address</label>
-                  <input 
-                    required
-                    className="bg-transparent border-b-2 border-primary/20 py-3 px-1 outline-none focus:border-secondary transition-colors text-on-surface font-body-md" 
-                    placeholder="jane@company.com" 
-                    type="email"
-                  />
-                </div>
-                <div className="flex flex-col gap-2 md:col-span-2">
-                  <label className="font-label-md text-primary uppercase tracking-widest">How can I help?</label>
-                  <textarea 
-                    required
-                    className="bg-transparent border-b-2 border-primary/20 py-3 px-1 outline-none focus:border-secondary transition-colors text-on-surface font-body-md resize-none" 
-                    placeholder="Briefly describe your project or enquiry..." 
-                    rows={4}
-                  ></textarea>
-                </div>
-                <div className="md:col-span-2 flex justify-start md:justify-end">
-                  <button 
-                    disabled={formState !== 'idle'}
-                    className="group flex items-center gap-3 font-label-md text-secondary uppercase tracking-widest py-2 disabled:opacity-50" 
-                    type="submit"
-                  >
-                    {formState === 'idle' && (
-                      <>
-                        Send Inquiry
-                        <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
-                      </>
-                    )}
-                    {formState === 'submitting' && 'Sending...'}
-                    {formState === 'success' && (
-                      <>
-                        Thank You! <CheckCircle2 className="w-5 h-5" />
-                      </>
-                    )}
-                  </button>
-                </div>
-              </form>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Map Graphic (Visual Only) */}
       <section className="w-full h-[300px] lg:h-[400px] relative hidden md:block">
