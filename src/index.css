@@ -1,0 +1,82 @@
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #fff8f5;
+  --color-surface-dim: #e1d8d4;
+  --color-surface-bright: #fff8f5;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-low: #fbf2ed;
+  --color-surface-container: #f5ece7;
+  --color-surface-container-high: #efe6e2;
+  --color-surface-container-highest: #e9e1dc;
+  
+  --color-on-surface: #1e1b18;
+  --color-on-surface-variant: #404847;
+  
+  --color-primary: #003734;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #1f4e4a;
+  --color-on-primary-container: #8fbeb9;
+  
+  --color-secondary: #8e4c31;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #ffa988;
+  --color-on-secondary-container: #793c22;
+  
+  --color-outline: #707977;
+  
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body antialiased;
+  }
+}
+
+@utility font-display-lg {
+  font-family: var(--font-display);
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+@utility font-display-lg-mobile {
+  font-family: var(--font-display);
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: -0.01em;
+  font-weight: 700;
+}
+@utility font-headline-md {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
+}
+@utility font-headline-sm {
+  font-family: var(--font-display);
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 600;
+}
+@utility font-body-lg {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 28px;
+  font-weight: 400;
+}
+@utility font-body-md {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+@utility font-label-md {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
