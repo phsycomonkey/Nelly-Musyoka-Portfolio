@@ -90,9 +90,10 @@ export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurren
         <section className="max-w-[1200px] mx-auto px-5 lg:px-6 py-12 lg:py-16 w-full">
           <button 
             onClick={() => {
-              setActiveStudyId?.(null);
               if (previousPage === 'home') {
-                setCurrentPage?.('home');
+                window.location.hash = '#/';
+              } else {
+                window.location.hash = '#/cases';
               }
             }}
             className="flex items-center gap-2 text-primary font-label-md uppercase tracking-widest hover:text-secondary transition-colors mb-12"
@@ -184,7 +185,7 @@ export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurren
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
               className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start cursor-pointer"
-              onClick={() => setActiveStudyId?.(project.id)}
+              onClick={() => window.location.hash = '#/cases/' + project.id}
             >
               {/* Sidebar Metadata */}
               <div className={`col-span-1 lg:col-span-3 ${project.reverse ? 'lg:order-last lg:text-right' : ''}`}>

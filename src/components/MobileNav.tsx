@@ -21,9 +21,13 @@ export default function MobileNav({ currentPage, setCurrentPage }: MobileNavProp
           const isActive = currentPage === item.id;
           
           return (
-            <button
+            <a
               key={item.id}
-              onClick={() => setCurrentPage(item.id)}
+              href={`#/${item.id === 'home' ? '' : item.id}`}
+              onClick={(e) => {
+                e.preventDefault();
+                setCurrentPage(item.id);
+              }}
               className={`flex flex-col items-center justify-center gap-1 min-w-[72px] transition-colors ${
                 isActive ? 'text-secondary' : 'text-on-surface-variant'
               }`}
@@ -32,7 +36,7 @@ export default function MobileNav({ currentPage, setCurrentPage }: MobileNavProp
               <span className={`font-label-md text-[10px] uppercase ${isActive ? 'font-bold' : ''}`}>
                 {item.label}
               </span>
-            </button>
+            </a>
           );
         })}
       </div>

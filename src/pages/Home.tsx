@@ -85,13 +85,13 @@ export default function Home({ setCurrentPage, setActiveStudyId }: HomeProps) {
                 
                 <motion.div variants={fadeIn} className="flex flex-wrap gap-4 pt-4">
                   <button 
-                    onClick={() => { setActiveStudyId?.(null); setCurrentPage('cases'); }}
+                    onClick={() => window.location.hash = '#/cases'}
                     className="px-8 py-4 bg-secondary text-on-primary font-label-md rounded-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
                   >
                     EXPLORE CASE STUDIES
                   </button>
                   <button 
-                    onClick={() => setCurrentPage('contact')}
+                    onClick={() => window.location.hash = '#/contact'}
                     className="px-8 py-4 border-[1.5px] border-primary text-primary font-label-md rounded-lg hover:bg-primary/5 transition-all duration-300 w-full sm:w-auto"
                   >
                     GET IN TOUCH
@@ -178,7 +178,7 @@ export default function Home({ setCurrentPage, setActiveStudyId }: HomeProps) {
           <div className="flex justify-between items-center mb-12 lg:mb-16">
             <h2 className="font-headline-md text-primary">Featured Work</h2>
             <button 
-              onClick={() => { setActiveStudyId?.(project.id); setCurrentPage('cases'); }}
+              onClick={() => window.location.hash = '#/cases/' + project.id}
               className="group flex items-center gap-2 font-label-md text-secondary uppercase tracking-widest hover:gap-4 transition-all"
             >
               View all projects
@@ -195,7 +195,7 @@ export default function Home({ setCurrentPage, setActiveStudyId }: HomeProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden cursor-pointer border border-outline/5"
-                onClick={() => { setActiveStudyId?.(project.id); setCurrentPage('cases'); }}
+                onClick={() => window.location.hash = '#/cases/' + project.id}
               >
                 <div className="w-full h-[240px] overflow-hidden relative">
                   <img 
@@ -244,13 +244,13 @@ export default function Home({ setCurrentPage, setActiveStudyId }: HomeProps) {
             </p>
             <div className="pt-8 flex flex-col sm:flex-row justify-center gap-4">
               <button 
-                onClick={() => setCurrentPage('contact')}
+                onClick={() => window.location.hash = '#/contact'}
                 className="px-10 py-5 bg-secondary text-on-primary font-label-md rounded-lg shadow-lg hover:shadow-secondary/20 transition-all"
               >
                 BOOK A CONSULTATION
               </button>
               <button 
-                onClick={() => setCurrentPage('resume')}
+                onClick={() => window.location.hash = '#/resume'}
                 className="px-10 py-5 border border-on-primary/20 hover:bg-on-primary/10 text-on-primary font-label-md rounded-lg transition-all"
               >
                 VIEW RESUME
