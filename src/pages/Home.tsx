@@ -3,9 +3,49 @@ import { Heart, TrendingUp, Layers, ArrowRight } from 'lucide-react';
 
 interface HomeProps {
   setCurrentPage: (page: string) => void;
+  setActiveStudyId?: (id: string | null) => void;
 }
 
-export default function Home({ setCurrentPage }: HomeProps) {
+export default function Home({ setCurrentPage, setActiveStudyId }: HomeProps) {
+
+  const featuredProjects = [
+    {
+      id: "01",
+      category: "Workspace Management",
+      title: "Cloud Spaces",
+      image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=800",
+      situation: "Inconsistent follow-ups with potential members after workspace tours led to a noticeable gap in conversion rates and missed sales opportunities."
+    },
+    {
+      id: "02",
+      category: "Hospitality",
+      title: "Theron Vacation Homes",
+      image: "https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&q=80&w=800",
+      situation: "Guests required faster response times and a higher degree of personalized support to feel fully accommodated throughout their stay."
+    },
+    {
+      id: "03",
+      category: "Education",
+      title: "Alnoor Training Center",
+      image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=800",
+      situation: "Gaps in parent communication and record management were causing delays in administrative support services."
+    },
+    {
+      id: "04",
+      category: "Real Estate",
+      title: "Off Market Listing",
+      image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800",
+      situation: "Coordinating property viewings and managing client communications lacked a unified process, risking costly delays throughout the sales cycle."
+    },
+    {
+      id: "05",
+      category: "Workspace Management",
+      title: "Cloud Spaces",
+      image: "https://images.unsplash.com/photo-1573164574472-797cdf4a583a?auto=format&fit=crop&q=80&w=800",
+      situation: "We needed to consistently refine the client experience to ensure high retention rates and seamless daily service delivery."
+    }
+  ];
+
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -45,7 +85,7 @@ export default function Home({ setCurrentPage }: HomeProps) {
                 
                 <motion.div variants={fadeIn} className="flex flex-wrap gap-4 pt-4">
                   <button 
-                    onClick={() => setCurrentPage('cases')}
+                    onClick={() => { setActiveStudyId?.(null); setCurrentPage('cases'); }}
                     className="px-8 py-4 bg-secondary text-on-primary font-label-md rounded-lg hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
                   >
                     EXPLORE CASE STUDIES
@@ -132,73 +172,63 @@ export default function Home({ setCurrentPage }: HomeProps) {
         </div>
       </section>
 
-      {/* Featured Work Section */}
+            {/* Featured Work Section */}
       <section className="w-full py-16 lg:py-24 bg-surface">
         <div className="max-w-[1200px] mx-auto px-5 md:px-6">
           <div className="flex justify-between items-center mb-12 lg:mb-16">
             <h2 className="font-headline-md text-primary">Featured Work</h2>
             <button 
-              onClick={() => setCurrentPage('cases')}
+              onClick={() => { setActiveStudyId?.(project.id); setCurrentPage('cases'); }}
               className="group flex items-center gap-2 font-label-md text-secondary uppercase tracking-widest hover:gap-4 transition-all"
             >
               View all projects
               <ArrowRight className="w-[18px] h-[18px]" />
             </button>
           </div>
-
-          <div className="space-y-8 lg:space-y-12">
-            {[
-              {
-                tag: "Commercial Strategy",
-                title: "Global Expansion: The Relationship Framework",
-                desc: "A comprehensive case study on scaling a luxury hospitality brand across three continents while maintaining a personal, boutique feel for every high-net-worth client.",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuD1zoWclPSQ8WVnczdYWnxvdKFwVfwZVB2lvlkzner_TzPiOcCvxE90lcVVUJxdDCoBtnd3ZcbskF7wX_gbuSdpMEJqWD-50hiWjEq6ghi9iGVbTii2hmMMo9aTJJPSuKitvvtlBTBwPn7xGQFsuoIVVo9LsAIz1pgFHHyjA3b5xxCGylbbPM1sHn8LMql7kGCzzgJ1aTACf0mXLVXG1tEg4lW0kbsJzA19pKKEdqhWwDwu6vBwzoR68xyMKHH1hhKVGIH2r39qHbA",
-                reverse: false
-              },
-              {
-                tag: "Retention & Care",
-                title: "Optimizing Client Success Workflows",
-                desc: "How we restructured a failing account management department into a high-performing retention engine, increasing LTV by 45% in twelve months through emotional intelligence training and process automation.",
-                img: "https://lh3.googleusercontent.com/aida-public/AB6AXuBCJcXpgl8fUvctsJcsCH2b6gm7r82jP2A5AHGWU4Y-4JWVdvMjnB6yOwgXETA6xrSMJI5Hkpb0r8AkPXNm2rF5I7p0qJ8OAxfJD1mADTk6qWO0DS4nSNk86HEjIrfWc-tGGkW9cdCDOJJBPubdyrU4lWumS4IvM2QrGZn3Teum6sDfgWUm8wUh6nFpRfoYpfVFMZ6SGVLatMGF3x9xI7QTPjoYXs8hZn7FWypd_JBZqoEsavxd4Y53OpQAKn8qbQeFVPQm8LjyINU",
-                reverse: true
-              }
-            ].map((work, i) => (
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {featuredProjects.map((project, i) => (
               <motion.div 
-                key={i}
+                key={project.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className={`flex flex-col ${work.reverse ? 'lg:flex-row-reverse' : 'lg:flex-row'} bg-surface-container rounded-2xl overflow-hidden group`}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group flex flex-col bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-md transition-shadow overflow-hidden cursor-pointer border border-outline/5"
+                onClick={() => { setActiveStudyId?.(project.id); setCurrentPage('cases'); }}
               >
-                <div className="w-full lg:w-3/5 overflow-hidden h-64 lg:h-[450px]">
+                <div className="w-full h-[240px] overflow-hidden relative">
                   <img 
-                    src={work.img} 
-                    alt={work.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                </div>
-                <div className="w-full lg:w-2/5 p-8 lg:p-12 flex flex-col justify-center">
-                  <div className="flex items-center gap-2 mb-4 lg:mb-6">
-                    <span className="px-3 py-1 bg-primary/10 text-primary rounded-full font-label-md text-[12px] tracking-wider uppercase">
-                      {work.tag}
-                    </span>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-4 left-4 right-4 text-white">
+                    <span className="font-label-md text-secondary/90 uppercase tracking-widest">{project.category}</span>
+                    <h3 className="font-headline-sm mt-1">{project.title}</h3>
                   </div>
-                  <h3 className="font-headline-md text-primary mb-4 lg:mb-6">{work.title}</h3>
-                  <p className="font-body-md text-on-surface-variant mb-6 lg:mb-8 line-clamp-3">
-                    {work.desc}
+                </div>
+                
+                <div className="p-6 flex flex-col flex-grow">
+                  <p className="font-body-md text-on-surface-variant line-clamp-3 mb-6">
+                    {project.situation}
                   </p>
-                  <button className="inline-flex items-center text-primary font-label-md font-bold group/link self-start">
-                    READ CASE STUDY 
-                    <ArrowRight className="w-[18px] h-[18px] ml-2 transition-transform group-hover/link:translate-x-1" />
-                  </button>
+                  
+                  <div className="mt-auto flex items-center justify-between border-t border-outline/10 pt-4">
+                    <span className="font-label-md text-primary group-hover:text-secondary transition-colors uppercase tracking-widest">
+                      Learn More
+                    </span>
+                    <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center group-hover:bg-secondary/10 transition-colors">
+                      <ArrowRight className="w-4 h-4 text-primary group-hover:text-secondary transition-transform" />
+                    </div>
+                  </div>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
-
       {/* CTA Section */}
       <section className="w-full py-16 lg:py-24 bg-primary text-on-primary">
         <div className="max-w-[1200px] mx-auto px-5 md:px-6 text-center">

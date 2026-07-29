@@ -2,35 +2,48 @@ import { motion } from 'motion/react';
 import { Download } from 'lucide-react';
 
 export default function Resume() {
-  const experiences = [
+    const experiences = [
     {
-      period: "2021 - Present",
+      period: "Current",
       company: "Cloud Spaces",
-      title: "Lead Product Designer",
-      desc: "Spearheading the design transformation of cloud-native infrastructure management. Focused on reducing cognitive load for DevOps engineers through intelligent visualization and proactive system monitoring tools.",
+      title: "Guest Relations & Client Relations Executive / Sales & Operations",
+      desc: "Managing client inquiries, coordinating requests, and working closely with internal teams to ensure client needs are addressed promptly. Consistently focusing on improving the client experience by enhancing communication, follow-ups, and service delivery.",
       bullets: [
-        "Redesigned the core provisioning workflow, resulting in a 35% decrease in deployment errors.",
-        "Established a multi-platform design system utilized by 4 cross-functional squads."
+        "Organized leads and communicated with prospects effectively, increasing conversions and meeting monthly sales targets.",
+        "Strengthened client relationships and improved client satisfaction by providing personalized support and maintaining clear communication."
       ]
     },
     {
-      period: "2018 - 2021",
+      period: "Previous",
       company: "Off Market Listing",
-      title: "Senior UX Strategist",
-      desc: "Revolutionized the high-end real estate market by creating a secure, invite-only marketplace for anonymous property transactions. Orchestrated the end-to-end user journey for HNWIs and brokers.",
+      title: "Executive Assistant",
+      desc: "Identified challenges in coordinating property viewings, managing client communication, and ensuring a smooth process from the initial viewing stage through to the final sale.",
       bullets: [
-        "Led user research across 3 continents to understand privacy requirements for ultra-high-net-worth individuals.",
-        "Integrated encrypted messaging and document signing into a seamless, high-touch mobile experience."
+        "Created a more organized process for managing property viewings, client communication, and follow-ups.",
+        "Coordinated schedules between clients and property owners, ensuring all details were communicated clearly.",
+        "Reduced delays and supported successful property transactions by keeping schedules organized."
       ]
     },
     {
-      period: "2015 - 2018",
-      company: "Digital Vanguard",
-      title: "UX/UI Designer",
-      desc: "Collaborated with Fortune 500 clients to digitize legacy workflows. Developed custom internal tools for logistics and supply chain management.",
-      stats: [
-        { value: "12+", label: "Projects Delivered" },
-        { value: "22%", label: "Efficiency Gains" }
+      period: "Previous",
+      company: "Alnoor Training Center",
+      title: "Student Affairs Secretary",
+      desc: "Addressed gaps in parent communication, record management, and follow-up processes that affected the efficiency of support services.",
+      bullets: [
+        "Improved the organization of parent requests and maintained accurate records.",
+        "Built strong relationships with parents through clear and consistent communication.",
+        "Reduced delays and created a smoother support experience for families by coordinating closely with different departments."
+      ]
+    },
+    {
+      period: "Previous",
+      company: "Theron Vacation Homes",
+      title: "Guest Relations",
+      desc: "Improved communication by following up with guests, addressing concerns quickly, and coordinating with internal teams to resolve issues.",
+      bullets: [
+        "Managed guest and client inquiries, following up on requests to resolve concerns efficiently.",
+        "Provided personalized support to ensure a smooth and positive experience.",
+        "Encouraged repeat business and referrals through smoother guest experiences and improved satisfaction."
       ]
     }
   ];
@@ -47,8 +60,11 @@ export default function Resume() {
           >
             <span className="font-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">Curriculum Vitae</span>
             <h1 className="font-display-lg-mobile lg:font-display-lg text-primary max-w-3xl leading-tight">
-              Architecting digital ecosystems with <span className="text-secondary italic font-normal">strategic precision</span> and human warmth.
+              Professional Resume
             </h1>
+            <p className="font-body-lg text-on-surface-variant mt-6 max-w-2xl">
+              A highly organized and detail-oriented administrative professional with extensive experience in client relations, executive assistance, and operations management. Proven track record of improving communication workflows, enhancing customer satisfaction, and ensuring seamless operational delivery across real estate, education, and workspace management sectors.
+            </p>
           </motion.div>
           
           <motion.div 

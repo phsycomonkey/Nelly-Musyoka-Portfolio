@@ -28,7 +28,7 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
           <span className="font-headline-sm text-on-surface md:hidden">Home</span>
         </div>
         
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-6 lg:gap-12">
           {navItems.map(item => (
             <button
               key={item.id}

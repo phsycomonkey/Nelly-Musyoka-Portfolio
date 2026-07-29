@@ -1,7 +1,15 @@
 import { motion } from 'motion/react';
-import { Briefcase, Building, BookOpen, Handshake, BarChart3, ArrowDown } from 'lucide-react';
+import { ArrowDown, ArrowLeft, BarChart3, Building, BookOpen, Briefcase, Handshake } from 'lucide-react';
 
-export default function CaseStudies() {
+
+interface CaseStudiesProps {
+  activeStudyId?: string | null;
+  setActiveStudyId?: (id: string | null) => void;
+  setCurrentPage?: (page: string) => void;
+  previousPage?: string;
+}
+
+export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurrentPage, previousPage }: CaseStudiesProps) {
   const projects = [
     {
       id: "01",
@@ -72,6 +80,80 @@ export default function CaseStudies() {
     }
   ];
 
+
+  const activeProject = projects.find(p => p.id === activeStudyId);
+
+  if (activeProject) {
+    const Icon = activeProject.icon;
+    return (
+      <div className="flex flex-col w-full pb-20">
+        <section className="max-w-[1200px] mx-auto px-5 lg:px-6 py-12 lg:py-16 w-full">
+          <button 
+            onClick={() => {
+              setActiveStudyId?.(null);
+              if (previousPage === 'home') {
+                setCurrentPage?.('home');
+              }
+            }}
+            className="flex items-center gap-2 text-primary font-label-md uppercase tracking-widest hover:text-secondary transition-colors mb-12"
+          >
+            <ArrowLeft className="w-5 h-5" />
+            Back
+          </button>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+          >
+            <div className={`col-span-1 lg:col-span-3 ${activeProject.reverse ? 'lg:order-last lg:text-right' : ''}`}>
+              <div className={`flex flex-col gap-6 ${activeProject.reverse ? 'lg:items-end' : ''}`}>
+                <div className={`w-16 h-16 rounded-2xl ${activeProject.iconBg} flex items-center justify-center ${activeProject.iconColor}`}>
+                  <Icon className="w-8 h-8" />
+                </div>
+                <div>
+                  <span className="font-label-md text-secondary uppercase tracking-widest">{activeProject.id} / {activeProject.category}</span>
+                  <h2 className="font-headline-md text-primary mt-1">{activeProject.title}</h2>
+                  <p className="font-body-md text-on-surface-variant mt-2">{activeProject.role}</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="col-span-1 lg:col-span-9 bg-surface-container-lowest p-6 lg:p-12 rounded-xl shadow-sm">
+              <div className="flex flex-col gap-8 lg:gap-10">
+                <div className="space-y-4">
+                  <h4 className="font-label-md text-primary uppercase tracking-widest border-b border-outline/10 pb-2">Situation</h4>
+                  <p className="font-body-md text-on-surface leading-relaxed">
+                    {activeProject.situation}
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-label-md text-primary uppercase tracking-widest border-b border-outline/10 pb-2">Approach</h4>
+                  <p className="font-body-md text-on-surface leading-relaxed">
+                    {activeProject.approach}
+                  </p>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-label-md text-secondary uppercase tracking-widest border-b border-outline/10 pb-2">Outcome</h4>
+                  <p className="font-body-md text-on-surface leading-relaxed">
+                    {activeProject.outcome}
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-2 lg:gap-3 mt-4">
+                  {activeProject.tags.map(tag => (
+                    <span key={tag} className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-[12px]">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="flex flex-col w-full pb-20">
       <section className="max-w-[1200px] mx-auto px-5 lg:px-6 py-12 lg:py-24 w-full">
@@ -83,9 +165,6 @@ export default function CaseStudies() {
           >
             <span className="font-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">Archive & Impact</span>
             <h1 className="font-display-lg-mobile lg:font-display-lg text-primary leading-tight">Selected Case Studies</h1>
-            <p className="font-body-lg text-on-surface-variant mt-4 lg:mt-6 max-w-xl">
-              A deep dive into strategic interventions, operational improvements, and the tangible outcomes of relationship-first project management.
-            </p>
           </motion.div>
           <div className="hidden lg:flex items-center gap-4 text-primary opacity-40">
             <span className="font-label-md">SCROLL TO EXPLORE</span>
@@ -104,7 +183,8 @@ export default function CaseStudies() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
+              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start cursor-pointer"
+              onClick={() => setActiveStudyId?.(project.id)}
             >
               {/* Sidebar Metadata */}
               <div className={`col-span-1 lg:col-span-3 ${project.reverse ? 'lg:order-last lg:text-right' : ''}`}>
@@ -114,12 +194,12 @@ export default function CaseStudies() {
                   </div>
                   <div>
                     <span className="font-label-md text-secondary uppercase tracking-widest">{project.id} / {project.category}</span>
-                    <h3 className="font-headline-sm text-primary mt-1">{project.title}</h3>
+                    <h2 className="font-headline-md text-primary mt-1">{project.title}</h2>
                     <p className="font-body-md text-on-surface-variant mt-2">{project.role}</p>
                   </div>
                 </div>
               </div>
-
+              
               {/* Main Content */}
               <div className="col-span-1 lg:col-span-9 bg-surface-container-lowest p-6 lg:p-12 rounded-xl shadow-sm group-hover:shadow-md transition-shadow duration-500">
                 <div className="flex flex-col gap-8 lg:gap-10">
@@ -153,19 +233,6 @@ export default function CaseStudies() {
             </motion.div>
           );
         })}
-      </section>
-
-      {/* CTA section inside case studies */}
-      <section className="w-full bg-primary py-16 lg:py-24 mt-16 lg:mt-24">
-        <div className="max-w-[1200px] mx-auto px-5 lg:px-6 text-center">
-          <h2 className="font-headline-md text-on-primary mb-6 lg:mb-8">Looking for more details?</h2>
-          <p className="font-body-lg text-on-primary/80 max-w-xl mx-auto mb-8 lg:mb-10">
-            Full case study dossiers - including process documentation, stakeholder mapping, and final metric reports - are available upon request for verified inquiries.
-          </p>
-          <button className="bg-secondary text-on-primary px-8 py-4 rounded-lg font-label-md hover:bg-secondary/90 transition-all transform hover:scale-105 active:scale-95 shadow-xl">
-            REQUEST FULL PORTFOLIO
-          </button>
-        </div>
       </section>
     </div>
   );
