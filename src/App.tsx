@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { X } from 'lucide-react';
 import Navbar from './components/Navbar';
 import MobileNav from './components/MobileNav';
 import Footer from './components/Footer';
@@ -10,6 +12,7 @@ import Contact from './pages/Contact';
 export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [activeStudyId, setActiveStudyId] = useState<string | null>(null);
+  const [expandedImage, setExpandedImage] = useState<string | null>(null);
   
   const scrollPositions = useRef<{ [key: string]: number }>({});
   const previousPage = useRef<string>('home');
@@ -84,19 +87,81 @@ export default function App() {
     }
   }, [currentPage, activeStudyId]);
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setExpandedImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
   return (
     <div className="flex flex-col min-h-screen bg-surface">
       <Navbar currentPage={currentPage} setCurrentPage={handlePageChange} />
       
       <main className="flex-grow pt-16 md:pt-20 pb-20 md:pb-0 relative z-10">
-        {currentPage === 'home' && <Home setCurrentPage={handlePageChange} setActiveStudyId={handleStudyChange} />}
-        {currentPage === 'cases' && <CaseStudies activeStudyId={activeStudyId} setActiveStudyId={handleStudyChange} setCurrentPage={handlePageChange} previousPage={previousPage.current} />}
+        {currentPage === 'home' && (
+          <Home 
+            setCurrentPage={handlePageChange} 
+            setActiveStudyId={handleStudyChange} 
+            onViewImage={setExpandedImage}
+            isImageExpanded={expandedImage !== null}
+          />
+        )}
+        {currentPage === 'cases' && (
+          <CaseStudies 
+            activeStudyId={activeStudyId} 
+            setActiveStudyId={handleStudyChange} 
+            setCurrentPage={handlePageChange} 
+            previousPage={previousPage.current} 
+            onViewImage={setExpandedImage}
+          />
+        )}
         {currentPage === 'resume' && <Resume />}
         {currentPage === 'contact' && <Contact />}
       </main>
       
       <Footer setCurrentPage={handlePageChange} />
       <MobileNav currentPage={currentPage} setCurrentPage={handlePageChange} />
+
+      {/* Lightbox Modal (Outside main wrapper, overlays everything including Navbar) */}
+      <AnimatePresence>
+        {expandedImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setExpandedImage(null)}
+            className="fixed inset-0 bg-black/95 backdrop-blur-sm z-[9999] flex items-center justify-center p-4 cursor-zoom-out"
+          >
+            {/* Close Button */}
+            <button 
+              onClick={() => setExpandedImage(null)}
+              className="absolute top-4 right-4 md:top-8 md:right-8 text-white bg-secondary/90 hover:bg-secondary p-3.5 md:p-4 rounded-full transition-all duration-300 z-[99999] flex items-center justify-center cursor-pointer shadow-2xl border border-white/10 hover:scale-110"
+              aria-label="Close image"
+            >
+              <X className="w-5 h-5 md:w-6 md:h-6" />
+            </button>
+
+            {/* Image Container */}
+            <motion.div 
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="relative max-w-[92vw] max-h-[82vh] flex items-center justify-center"
+            >
+              <img 
+                src={expandedImage} 
+                alt="Expanded view" 
+                className="max-w-full max-h-[82vh] object-contain rounded-xl shadow-2xl border border-white/10 select-none pointer-events-none"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

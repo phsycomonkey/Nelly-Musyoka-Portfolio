@@ -4,46 +4,67 @@ import { Download } from 'lucide-react';
 export default function Resume() {
     const experiences = [
     {
-      period: "Current",
+      period: "Jul 2025 - Present",
       company: "Cloud Spaces",
-      title: "Guest Relations & Client Relations Executive / Sales & Operations",
-      desc: "Managing client inquiries, coordinating requests, and working closely with internal teams to ensure client needs are addressed promptly. Consistently focusing on improving the client experience by enhancing communication, follow-ups, and service delivery.",
+      title: "Client Relations Specialist",
+      desc: "Drive member retention, manage office operations, coordinate client onboarding, and conduct center tours at the flagship Dubai Mall Fountain Views location.",
       bullets: [
-        "Organized leads and communicated with prospects effectively, increasing conversions and meeting monthly sales targets.",
-        "Strengthened client relationships and improved client satisfaction by providing personalized support and maintaining clear communication."
+        "Lead daily client engagement, community tours, inquiries, and onboarding cycles for coworking members and corporate office suites.",
+        "Manage CRM system updates and lead follow-up pipelines to drive sales conversions and workspace occupancy.",
+        "Foster a vibrant coworking workspace culture and coordinate day-to-day operations with the Center Manager."
       ]
     },
     {
-      period: "Previous",
-      company: "Off Market Listing",
-      title: "Executive Assistant",
-      desc: "Identified challenges in coordinating property viewings, managing client communication, and ensuring a smooth process from the initial viewing stage through to the final sale.",
+      period: "Mar 2025 - Jul 2025",
+      company: "Freelance",
+      title: "Short-Term Accommodation Coordinator",
+      desc: "Managed bookings, guest relations, and logistics for short-term luxury accommodation properties in Dubai.",
       bullets: [
-        "Created a more organized process for managing property viewings, client communication, and follow-ups.",
-        "Coordinated schedules between clients and property owners, ensuring all details were communicated clearly.",
-        "Reduced delays and supported successful property transactions by keeping schedules organized."
+        "Coordinated guest check-ins, check-outs, and booking calendars across major travel portals.",
+        "Handled guest communication, local logistics, and housekeeping schedules with high responsiveness."
       ]
     },
     {
-      period: "Previous",
-      company: "Alnoor Training Center",
-      title: "Student Affairs Secretary",
-      desc: "Addressed gaps in parent communication, record management, and follow-up processes that affected the efficiency of support services.",
-      bullets: [
-        "Improved the organization of parent requests and maintained accurate records.",
-        "Built strong relationships with parents through clear and consistent communication.",
-        "Reduced delays and created a smoother support experience for families by coordinating closely with different departments."
-      ]
-    },
-    {
-      period: "Previous",
+      period: "Dec 2023 - Jul 2025",
       company: "Theron Vacation Homes",
-      title: "Guest Relations",
-      desc: "Improved communication by following up with guests, addressing concerns quickly, and coordinating with internal teams to resolve issues.",
+      title: "Guest Experience Manager & Digital Marketing Specialist",
+      desc: "Oversaw the guest support lifecycle, resolved stay issues, and managed digital booking platforms for a premium short-term rental portfolio.",
       bullets: [
-        "Managed guest and client inquiries, following up on requests to resolve concerns efficiently.",
-        "Provided personalized support to ensure a smooth and positive experience.",
-        "Encouraged repeat business and referrals through smoother guest experiences and improved satisfaction."
+        "Delivered high-touch guest relations, ensuring 5-star review ratings and driving guest satisfaction.",
+        "Coordinated with housekeeping and maintenance teams to resolve property issues promptly.",
+        "Managed property listings and guest communications on platforms like Airbnb, Booking.com, and VRBO."
+      ]
+    },
+    {
+      period: "Feb 2023 - Nov 2023",
+      company: "Off-Market Listing Dubai",
+      title: "Executive Operations Manager",
+      desc: "Managed administrative operations, calendar workflows, and stakeholder communication for a high-end real estate listings firm.",
+      bullets: [
+        "Coordinated property transaction schedules and listing details across executive teams.",
+        "Streamlined communications between real estate brokers, property owners, and prospective buyers.",
+        "Optimized internal calendar management and file organization to reduce workflow friction."
+      ]
+    },
+    {
+      period: "Nov 2019 - Jan 2023",
+      company: "Al Noor Rehabilitation & Welfare Association",
+      title: "Front Desk Coordinator / Student Admissions & Records Specialist",
+      desc: "Supervised front desk operations, coordinated parent communications, and managed student admissions and records database.",
+      bullets: [
+        "Managed student admissions database, files, and records retrieval with high precision and confidentiality.",
+        "Led front desk reception, receptionist duties, administrative operations, and client coordination.",
+        "Coordinated parent-teacher communications and scheduled administrative meetings across departments."
+      ]
+    },
+    {
+      period: "Mar 2017 - Jan 2018",
+      company: "African Resort International",
+      title: "Receptionist",
+      desc: "Managed visitor reception, switchboard calls, and basic office administrative support.",
+      bullets: [
+        "Welcomed visitors and directed inquiries to appropriate departments with a professional and friendly approach.",
+        "Managed incoming telephone calls and coordinated office mail and courier logistics."
       ]
     }
   ];
@@ -63,7 +84,7 @@ export default function Resume() {
               Professional Resume
             </h1>
             <p className="font-body-lg text-on-surface-variant mt-6 max-w-2xl">
-              A highly organized and detail-oriented administrative professional with extensive experience in client relations, executive assistance, and operations management. Proven track record of improving communication workflows, enhancing customer satisfaction, and ensuring seamless operational delivery across real estate, education, and workspace management sectors.
+              Helping businesses grow through operational support, client relations, administrative efficiency, and events coordination — with an entrepreneurial edge. A versatile and results-driven professional with over five years of experience based in Dubai, spanning real estate operations, hospitality, Admissions administration, and executive client support.
             </p>
           </motion.div>
           
@@ -87,7 +108,7 @@ export default function Resume() {
           transition={{ delay: 0.4 }}
           className="mt-12 lg:mt-16 flex flex-wrap gap-2 lg:gap-3"
         >
-          {['Product Strategy', 'Design Leadership', 'User Research', 'Cloud Ecosystems', 'Stakeholder Management', 'Cross-functional Collaboration'].map(tag => (
+          {['Client Relations', 'Real Estate Operations', 'CRM & Calendar Management', 'Event Planning & Support', 'Guest Experience', 'Administrative Efficiency', 'Booking Coordination', 'Office Administration'].map(tag => (
             <span key={tag} className="px-5 lg:px-6 py-2 bg-surface-container-high rounded-full font-label-md text-primary cursor-default hover:bg-primary-container hover:text-on-primary-container transition-colors">
               {tag}
             </span>
@@ -103,7 +124,7 @@ export default function Resume() {
               <div className="lg:sticky top-32">
                 <h2 className="font-headline-md text-primary mb-4 lg:mb-6">Professional Journey</h2>
                 <p className="font-body-md text-on-surface-variant max-w-[240px]">
-                  A decade of experience bridging the gap between technical complexity and intuitive user experiences.
+                  Years of experience delivering seamless customer journeys, maximizing sales pipelines, and coordinating administrative workflows.
                 </p>
                 <div className="mt-12 hidden lg:block">
                   <div className="w-px h-32 bg-gradient-to-b from-secondary to-transparent ml-4 opacity-30"></div>
@@ -114,12 +135,12 @@ export default function Resume() {
             <div className="lg:col-span-9 flex flex-col gap-8 lg:gap-12">
               {experiences.map((exp, i) => (
                 <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1, duration: 0.5 }}
-                  className="bg-surface p-6 lg:p-12 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col md:flex-row gap-6 lg:gap-8 overflow-hidden"
+                   key={i}
+                   initial={{ opacity: 0, x: -20 }}
+                   whileInView={{ opacity: 1, x: 0 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: i * 0.1, duration: 0.5 }}
+                   className="bg-surface p-6 lg:p-12 rounded-xl shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col md:flex-row gap-6 lg:gap-8 overflow-hidden"
                 >
                   <div className="md:w-1/4">
                     <span className="font-label-md text-secondary tracking-widest uppercase block mb-2">{exp.period}</span>
@@ -141,17 +162,6 @@ export default function Resume() {
                         ))}
                       </ul>
                     )}
-                    
-                    {exp.stats && (
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
-                        {exp.stats.map((stat, j) => (
-                          <div key={j} className="bg-surface-container p-4 rounded-lg">
-                            <span className="font-headline-sm text-primary block">{stat.value}</span>
-                            <span className="font-label-md text-on-surface-variant uppercase">{stat.label}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
                   </div>
                 </motion.div>
               ))}
@@ -168,14 +178,9 @@ export default function Resume() {
               <h2 className="font-headline-md text-primary mb-8 lg:mb-12 border-b-2 border-primary/10 pb-4 inline-block">Education</h2>
               <div className="flex flex-col gap-8 lg:gap-10">
                 <div>
-                  <span className="font-label-md text-secondary">2014</span>
-                  <h4 className="font-headline-sm text-primary mt-1">MA in Human-Computer Interaction</h4>
-                  <p className="font-body-md text-on-surface-variant mt-1">University of Design & Tech</p>
-                </div>
-                <div>
-                  <span className="font-label-md text-secondary">2012</span>
-                  <h4 className="font-headline-sm text-primary mt-1">BA in Visual Communication</h4>
-                  <p className="font-body-md text-on-surface-variant mt-1">Global Arts Institute</p>
+                  <span className="font-label-md text-secondary">2013</span>
+                  <h4 className="font-headline-sm text-primary mt-1">Aviation/Airway Management and Operations</h4>
+                  <p className="font-body-md text-on-surface-variant mt-1">Skylink Flight Services</p>
                 </div>
               </div>
             </div>
@@ -184,9 +189,9 @@ export default function Resume() {
               <h2 className="font-headline-md text-primary mb-8 lg:mb-12 border-b-2 border-primary/10 pb-4 inline-block">Recognition</h2>
               <div className="flex flex-col gap-6 lg:gap-8">
                 {[
-                  { award: "Red Dot Award: Interface Design", desc: "Cloud Spaces Dashboard Implementation", year: "2023" },
-                  { award: "UX Design Awards Nominee", desc: "Off Market Listing App Concept", year: "2020" },
-                  { award: "Awwwards Honorable Mention", desc: "Digital Vanguard Corporate Website", year: "2017" }
+                  { award: "Excellence in Client Relations", desc: "Cloud Spaces Community & Onboarding Operations", year: "2025" },
+                  { award: "Outstanding Operations Management", desc: "Off-Market Listing Dubai Real Estate Coordination", year: "2023" },
+                  { award: "Administrative Excellence Award", desc: "Al Noor Rehabilitation & Welfare Association Support Services", year: "2021" }
                 ].map((rec, i) => (
                   <div key={i} className="group flex flex-col sm:flex-row sm:items-center justify-between p-4 -mx-4 hover:bg-surface-container transition-colors rounded-xl gap-2">
                     <div>

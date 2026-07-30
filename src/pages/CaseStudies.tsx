@@ -1,85 +1,121 @@
 import { motion } from 'motion/react';
-import { ArrowDown, ArrowLeft, BarChart3, Building, BookOpen, Briefcase, Handshake } from 'lucide-react';
-
+import { ArrowDown, ArrowLeft, BarChart3, Building, BookOpen, Briefcase, Handshake, Target, Cpu, Award, ArrowRight } from 'lucide-react';
 
 interface CaseStudiesProps {
   activeStudyId?: string | null;
   setActiveStudyId?: (id: string | null) => void;
   setCurrentPage?: (page: string) => void;
   previousPage?: string;
+  onViewImage: (imgUrl: string) => void;
 }
 
-export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurrentPage, previousPage }: CaseStudiesProps) {
+export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurrentPage, previousPage, onViewImage }: CaseStudiesProps) {
+
   const projects = [
     {
       id: "01",
       category: "Workspace Management",
       title: "Cloud Spaces",
-      role: "Sales & Operations",
-      situation: "While working at Cloud Spaces, I noticed that many potential members were not being followed up consistently after their tours, leading to missed sales opportunities. I improved the follow-up process by organizing leads and communicating with prospects more effectively, which helped increase conversions, improve member satisfaction and meet my monthly sales targets.",
-      approach: "I took the initiative to reach out to each prospect, followed up regularly and took the time to understand what they were looking for. By staying in touch and responding to their questions quickly, I built trust and helped them choose the membership plan that best suited their work requirements.",
-      outcome: "I stayed in regular contact with each prospect, answered their questions and recommended the membership plan that best matched their needs. As a result, I improved conversion rates, met my monthly sales targets and helped increase workspace occupancy while delivering a positive customer experience.",
-      tags: ["SALES", "CUSTOMER RELATIONS"],
+      role: "Client Relations Specialist",
+      situation: "While working as a Client Relations Specialist at Cloud Spaces Dubai Mall Fountain Views flagship coworking center, I noticed that lead inquiries and onboarding cycles needed a highly proactive follow-up process to maximize occupancy and build client retention.",
+      approach: "I took the initiative to streamline daily coworking member and corporate tenant tours, managed CRM pipelines with immediate updates, and followed up closely with prospects to guide them through our customized membership packages.",
+      outcome: "By providing responsive communications and structured client follow-ups, I successfully helped maximize workspace occupancy, met 100% of monthly sales targets, and elevated the day-to-day community culture.",
+      tags: ["CLIENT RELATIONS", "WORKSPACE OPERATIONS"],
       icon: Building,
       iconColor: "text-primary",
-      iconBg: "bg-primary/5"
+      iconBg: "bg-primary/5",
+      image: "/assets/img/Cloud Spaces.jpeg",
+      gallery: ["/assets/img/claude2.jpeg", "/assets/img/claude3.jpeg"],
+      metrics: [
+        { value: "100%", label: "Sales Target Met" },
+        { value: "+15%", label: "Conversion Rate" },
+        { value: "48h", label: "Max Response Time" }
+      ]
     },
     {
       id: "02",
       category: "Hospitality",
       title: "Theron Vacation Homes",
-      role: "Guest Relations",
-      situation: "During my time at Theron Vacation Homes, I identified that guests needed faster responses and more personalized support throughout their stay. I improved communication by following up with guests, addressing concerns quickly and coordinating with internal teams to resolve issues. This resulted in smoother guest experiences, improved satisfaction and stronger client relationships through positive feedback and repeat bookings.",
-      approach: "I approached it by taking the time to understand each guest and client's needs, maintaining clear communication and following up consistently. I worked closely with the relevant teams to address concerns quickly, provide suitable solutions and ensure every guest or client had a smooth and positive experience.",
-      outcome: "I managed guest and client inquiries, followed up on requests and coordinated with internal teams to resolve concerns efficiently. By providing personalized support and ensuring smooth communication, I helped improve guest satisfaction, strengthen client relationships and create a positive experience that encouraged repeat business and referrals.",
-      tags: ["HOSPITALITY", "GUEST SUPPORT"],
+      role: "Guest Experience Manager & Digital Marketing Specialist",
+      situation: "During my tenure at Theron Vacation Homes, I identified that maintaining consistent 5-star review ratings across Airbnb, Booking.com, and VRBO required a faster response system for guest inquiries and seamless onboarding operations.",
+      approach: "I managed property listings and client communications on online booking platforms, oversaw stay lifecycles, and coordinated housekeeping and maintenance schedules to resolve stay issues immediately.",
+      outcome: "My high-touch service delivery ensured top-tier guest satisfaction, generated a 20% increase in repeat guest bookings, and consistently maintained 5-star rating averages across all property channels.",
+      tags: ["HOSPITALITY", "GUEST RELATIONS"],
       icon: Handshake,
       iconColor: "text-secondary",
       iconBg: "bg-secondary/5",
-      reverse: true
+      reverse: true,
+      image: "/assets/img/TheronVacationHomes.PNG",
+      imagePosition: "object-[center_30%]",
+      gallery: ["/assets/img/IMG_1112.jpg", "/assets/img/IMG_0999.jpg"],
+      metrics: [
+        { value: "98%", label: "Guest Satisfaction" },
+        { value: "+20%", label: "Repeat Bookings" },
+        { value: "5 ★", label: "Average Review" }
+      ]
     },
     {
       id: "03",
       category: "Education",
-      title: "Alnoor Training Center",
-      role: "Student Affairs Secretary",
-      situation: "During my time as a Student Affairs Secretary at Alnoor Training Center, I identified gaps in parent communication, record management and follow-up processes that affected the efficiency of support services. I improved the organization of parent requests, maintained accurate records and coordinated closely with different departments to ensure concerns were addressed promptly. This helped improve communication with parents, reduced delays, and created a smoother support experience for families.",
-      approach: "I approached it by building strong relationships with parents through clear and consistent communication. I made sure their concerns were listened to, updates were shared promptly and any issues were followed up with the relevant departments. By creating a supportive and reliable communication process, I helped strengthen parent trust and improve their overall experience with the center.",
-      outcome: "I improved the way parent inquiries, requests and records were managed by organizing information more efficiently and ensuring timely communication. I worked closely with different departments to address parent concerns and provide accurate updates. As a result, communication with parents improved, response times were faster and the overall support process became more organized and effective.",
-      tags: ["EDUCATION", "ADMINISTRATION"],
+      title: "Al Noor Rehabilitation & Welfare Association",
+      role: "Student Admissions & Records Specialist",
+      situation: "At Al Noor Rehabilitation & Welfare Association (for People of Determination), managing parent correspondence, admissions pipelines, and student records database required high administrative accuracy and confidentiality.",
+      approach: "I supervised front desk receptionist operations, maintained the admissions and student records database, and coordinated parent-teacher scheduling across multidisciplinary departments.",
+      outcome: "Streamlined records retrieval with 100% database accuracy, significantly reduced parent-response delays, and established a trusted communication channel for families and staff.",
+      tags: ["ADMINISTRATION", "CLIENT SUPPORT"],
       icon: BookOpen,
       iconColor: "text-primary",
-      iconBg: "bg-primary/5"
+      iconBg: "bg-primary/5",
+      image: "/assets/img/IMG_7893.jpg",
+      gallery: ["/assets/img/IMG_7891.jpg", "/assets/img/IMG_7952.jpg"],
+      metrics: [
+        { value: "-40%", label: "Response Delays" },
+        { value: "100%", label: "Record Accuracy" },
+        { value: "High", label: "Parent Trust Score" }
+      ]
     },
     {
       id: "04",
       category: "Real Estate",
-      title: "Off Market Listing",
-      role: "Executive Assistant",
-      situation: "During my time as an Executive Assistant at Off Market Listing, I identified challenges in coordinating property viewings, managing client communication and ensuring a smooth process from the initial viewing stage through to the final sale. These gaps created a risk of delays and missed opportunities. I took the initiative to improve coordination, maintain organized records and ensure consistent follow-ups with clients and stakeholders throughout the sales process.",
-      approach: "I approached it by creating a more organized process for managing property viewings, client communication and follow-ups. I coordinated schedules between clients and property owners, ensured all details were communicated clearly and monitored each stage of the process from viewing to sale completion to avoid delays and provide a smooth experience for all stakeholders.",
-      outcome: "I coordinated property viewings, managed client communication, followed up on inquiries and supported the sales process from the initial viewing stage through to completion. By keeping schedules organized and ensuring clear communication between all parties, I helped create a smoother client experience, reduced delays and supported successful property transactions.",
-      tags: ["REAL ESTATE", "COORDINATION"],
+      title: "Off-Market Listing Dubai",
+      role: "Executive Operations Manager",
+      situation: "At Off-Market Listing Dubai, coordinating high-value property viewings, transaction records, and broker communications required tight scheduling and workflow management to prevent delayed deals.",
+      approach: "I managed executive calendars, coordinated property viewing itineraries, organized transaction files, and acted as the primary liaison between brokers, owners, and VIP clients.",
+      outcome: "Achieved a 100% coordination rate with zero missed property tours, reduced real estate transaction lifecycle delays, and supported successful high-value sales.",
+      tags: ["REAL ESTATE", "EXECUTIVE OPERATIONS"],
       icon: Briefcase,
       iconColor: "text-secondary",
       iconBg: "bg-secondary/5",
-      reverse: true
+      reverse: true,
+      image: "/assets/img/OffMarketListing.jpg",
+      gallery: ["/assets/img/IMG_8903.jpg", "/assets/img/IMG_9020.jpg", "/assets/img/IMG_9023.jpg"],
+      metrics: [
+        { value: "0", label: "Missed Viewings" },
+        { value: "Fast", label: "Sales Cycles" },
+        { value: "100%", label: "Coordination Rate" }
+      ]
     },
     {
       id: "05",
       category: "Workspace Management",
       title: "Cloud Spaces",
-      role: "Guest & Client Relations",
-      situation: "In my current role as a Guest Relations and Client Relations Executive at Cloud Spaces, I continuously focus on improving the client experience by identifying opportunities to enhance communication, follow-ups and service delivery. I manage client inquiries, coordinate requests and work closely with internal teams to ensure client needs are addressed promptly, helping maintain strong relationships and a positive workspace experience.",
-      approach: "I approached it by staying proactive with client communication, understanding their needs and ensuring their requests were followed up on promptly. I worked closely with internal teams to resolve issues efficiently, provided regular updates to clients, and focused on creating a smooth and positive experience throughout their journey with Cloud Spaces.",
-      outcome: "I managed client inquiries, coordinated requests with internal teams and ensured timely follow-ups to resolve concerns and maintain a high level of service. By providing personalized support and maintaining clear communication, I helped strengthen client relationships, improve client satisfaction and create a positive workspace experience for members.",
-      tags: ["CLIENT RELATIONS", "SERVICE DELIVERY"],
+      role: "Client Relations Specialist",
+      situation: "At Cloud Spaces flagship coworking center in Dubai, I continuously focus on elevating member engagement, resolving corporate client inquiries, and delivering daily service excellence.",
+      approach: "I lead coworking community initiatives, coordinate workspace onboarding, resolve tenant requests, and collaborate with the Center Manager to maintain our premium workspace standards.",
+      outcome: "Successfully achieved a 95% client retention rate, minimized response times to under 10 minutes, and contributed to a vibrant workspace culture.",
+      tags: ["CLIENT RELATIONS", "COMMUNITY ENGAGEMENT"],
       icon: BarChart3,
       iconColor: "text-primary",
-      iconBg: "bg-primary/5"
+      iconBg: "bg-primary/5",
+      image: "/assets/img/Cloud Spaces.jpeg",
+      gallery: ["/assets/img/IMG_9020.jpg", "/assets/img/IMG_9023.jpg", "/assets/img/main2.PNG"],
+      metrics: [
+        { value: "95%", label: "Client Retention" },
+        { value: "<10m", label: "Average Response" },
+        { value: "Top", label: "Service Excellence" }
+      ]
     }
   ];
-
 
   const activeProject = projects.find(p => p.id === activeStudyId);
 
@@ -87,147 +123,235 @@ export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurren
     const Icon = activeProject.icon;
     return (
       <div className="flex flex-col w-full pb-20">
-        <section className="max-w-[1200px] mx-auto px-5 lg:px-6 py-12 lg:py-16 w-full">
-          <button 
-            onClick={() => {
-              if (previousPage === 'home') {
-                window.location.hash = '#/';
-              } else {
-                window.location.hash = '#/cases';
-              }
-            }}
-            className="flex items-center gap-2 text-primary font-label-md uppercase tracking-widest hover:text-secondary transition-colors mb-12"
-          >
-            <ArrowLeft className="w-5 h-5" />
-            Back
-          </button>
+        {/* Banner Section */}
+        <section className="relative w-full h-[40vh] md:h-[50vh] overflow-hidden">
+          <img 
+            src={activeProject.image} 
+            alt={activeProject.title} 
+            className={`w-full h-full object-cover ${activeProject.imagePosition || 'object-center'}`}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/60 to-black/30"></div>
           
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
-          >
-            <div className={`col-span-1 lg:col-span-3 ${activeProject.reverse ? 'lg:order-last lg:text-right' : ''}`}>
-              <div className={`flex flex-col gap-6 ${activeProject.reverse ? 'lg:items-end' : ''}`}>
-                <div className={`w-16 h-16 rounded-2xl ${activeProject.iconBg} flex items-center justify-center ${activeProject.iconColor}`}>
-                  <Icon className="w-8 h-8" />
+          <div className="absolute inset-0 flex flex-col justify-end">
+            <div className="max-w-[1200px] w-full mx-auto px-5 lg:px-6 pb-8 md:pb-12">
+              <button 
+                onClick={() => {
+                  if (previousPage === 'home') {
+                    setCurrentPage?.('home');
+                  } else {
+                    setActiveStudyId?.(null);
+                  }
+                }}
+                className="group inline-flex items-center gap-2 text-primary font-label-md uppercase tracking-wider mb-6 bg-surface/80 hover:bg-surface backdrop-blur-md px-5 py-3 rounded-full transition-all duration-300"
+              >
+                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                Back to Cases
+              </button>
+              
+              <div className="flex items-center gap-3 mb-3">
+                <div className={`w-10 h-10 rounded-xl ${activeProject.iconBg} flex items-center justify-center ${activeProject.iconColor}`}>
+                  <Icon className="w-5 h-5" />
                 </div>
-                <div>
-                  <span className="font-label-md text-secondary uppercase tracking-widest">{activeProject.id} / {activeProject.category}</span>
-                  <h2 className="font-headline-md text-primary mt-1">{activeProject.title}</h2>
-                  <p className="font-body-md text-on-surface-variant mt-2">{activeProject.role}</p>
-                </div>
+                <span className="font-label-md text-secondary uppercase tracking-[0.2em] text-[12px] md:text-[14px]">
+                  {activeProject.category}
+                </span>
+              </div>
+              
+              <h1 className="font-display-lg-mobile md:font-display-lg text-primary">{activeProject.title}</h1>
+              <p className="font-headline-sm text-on-surface-variant font-light mt-2">{activeProject.role}</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Project Details Section */}
+        <section className="max-w-[1200px] mx-auto px-5 lg:px-6 py-12 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+            {/* Left Column: Situation, Approach, Outcome */}
+            <div className="lg:col-span-8 space-y-12">
+              <div className="space-y-4">
+                <h3 className="font-headline-sm text-primary flex items-center gap-3 border-b border-outline/10 pb-3">
+                  <span className="w-2 h-2 rounded-full bg-secondary"></span>
+                  Situation
+                </h3>
+                <p className="font-body-lg text-on-surface leading-relaxed">{activeProject.situation}</p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="font-headline-sm text-primary flex items-center gap-3 border-b border-outline/10 pb-3">
+                  <span className="w-2 h-2 rounded-full bg-secondary"></span>
+                  Approach
+                </h3>
+                <p className="font-body-lg text-on-surface leading-relaxed">{activeProject.approach}</p>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="font-headline-sm text-primary flex items-center gap-3 border-b border-outline/10 pb-3">
+                  <span className="w-2 h-2 rounded-full bg-secondary"></span>
+                  Outcome
+                </h3>
+                <p className="font-body-lg text-on-surface leading-relaxed">{activeProject.outcome}</p>
               </div>
             </div>
-            
-            <div className="col-span-1 lg:col-span-9 bg-surface-container-lowest p-6 lg:p-12 rounded-xl shadow-sm">
-              <div className="flex flex-col gap-8 lg:gap-10">
-                <div className="space-y-4">
-                  <h4 className="font-label-md text-primary uppercase tracking-widest border-b border-outline/10 pb-2">Situation</h4>
-                  <p className="font-body-md text-on-surface leading-relaxed">
-                    {activeProject.situation}
-                  </p>
+
+            {/* Right Column: Key Stats & Tags */}
+            <div className="lg:col-span-4 space-y-10">
+              {/* Metrics */}
+              <div className="bg-surface-container-low p-8 rounded-3xl border border-outline/5 space-y-6">
+                <h4 className="font-label-md text-primary uppercase tracking-widest text-center border-b border-outline/10 pb-4">
+                  Key Metrics Achieved
+                </h4>
+                <div className="flex flex-col gap-6">
+                  {activeProject.metrics.map((metric, index) => (
+                    <div key={index} className="text-center">
+                      <span className="text-3xl lg:text-4xl font-bold text-secondary block">{metric.value}</span>
+                      <span className="text-[11px] font-label-md text-on-surface-variant uppercase tracking-wider block mt-1">
+                        {metric.label}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-                <div className="space-y-4">
-                  <h4 className="font-label-md text-primary uppercase tracking-widest border-b border-outline/10 pb-2">Approach</h4>
-                  <p className="font-body-md text-on-surface leading-relaxed">
-                    {activeProject.approach}
-                  </p>
-                </div>
-                <div className="space-y-4">
-                  <h4 className="font-label-md text-secondary uppercase tracking-widest border-b border-outline/10 pb-2">Outcome</h4>
-                  <p className="font-body-md text-on-surface leading-relaxed">
-                    {activeProject.outcome}
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-2 lg:gap-3 mt-4">
-                  {activeProject.tags.map(tag => (
-                    <span key={tag} className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-[12px]">
+              </div>
+
+              {/* Tags */}
+              <div className="space-y-4">
+                <h4 className="font-label-md text-primary uppercase tracking-widest">Focus Areas</h4>
+                <div className="flex flex-wrap gap-2">
+                  {activeProject.tags.map((tag, index) => (
+                    <span 
+                      key={index}
+                      className="px-4 py-2 bg-surface-container rounded-lg font-label-md text-[11px] text-primary tracking-wider uppercase"
+                    >
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
+
+          {/* Project Gallery */}
+          {activeProject.gallery && activeProject.gallery.length > 0 && (
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mt-16 border-t border-outline/10 pt-16"
+            >
+              <div className="text-center mb-10">
+                <span className="font-label-md text-secondary uppercase tracking-[0.2em] block mb-2">Visual Archive</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                {activeProject.gallery.map((imgUrl, index) => (
+                  <motion.div 
+                    key={index}
+                    whileHover={{ y: -6, scale: 1.02 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                    className="relative aspect-4/3 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-outline/5 cursor-zoom-in group"
+                    onClick={() => onViewImage(imgUrl)}
+                  >
+                    <img 
+                      src={imgUrl} 
+                      alt={`Gallery view ${index + 1} for ${activeProject.title}`} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 object-[center_35%]"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                      <span className="text-white font-label-md text-[12px] tracking-wider uppercase">View Image</span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
         </section>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col w-full pb-20">
-      <section className="max-w-[1200px] mx-auto px-5 lg:px-6 py-12 lg:py-24 w-full">
-        <div className="flex flex-col md:flex-row items-end justify-between gap-8 border-b border-outline/10 pb-8 lg:pb-12">
+    <div className="flex flex-col w-full pb-20 bg-surface">
+      {/* Page Header */}
+      <section className="max-w-[1200px] mx-auto px-5 lg:px-6 py-12 lg:py-16 w-full">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 border-b border-outline/10 pb-8 lg:pb-12">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="max-w-2xl"
           >
-            <span className="font-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">Archive & Impact</span>
+            <span className="font-label-md text-secondary uppercase tracking-[0.2em] mb-4 block">Impact & Strategy</span>
             <h1 className="font-display-lg-mobile lg:font-display-lg text-primary leading-tight">Selected Case Studies</h1>
           </motion.div>
           <div className="hidden lg:flex items-center gap-4 text-primary opacity-40">
-            <span className="font-label-md">SCROLL TO EXPLORE</span>
+            <span className="font-label-md">EXPLORE STORIES</span>
             <ArrowDown className="w-5 h-5 animate-bounce" />
           </div>
         </div>
       </section>
 
-      <section className="max-w-[1200px] mx-auto px-5 lg:px-6 w-full space-y-16 lg:space-y-24">
+      {/* Case Studies Grid/List */}
+      <section className="max-w-[1200px] mx-auto px-5 lg:px-6 w-full space-y-12 lg:space-y-16">
         {projects.map((project, i) => {
           const Icon = project.icon;
           return (
             <motion.div 
               key={project.id}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="group relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-start cursor-pointer"
+              className="bg-surface-container-lowest border border-outline/10 rounded-3xl overflow-hidden hover:shadow-2xl hover:border-secondary/20 transition-all duration-500 group cursor-pointer flex flex-col lg:flex-row"
               onClick={() => window.location.hash = '#/cases/' + project.id}
             >
-              {/* Sidebar Metadata */}
-              <div className={`col-span-1 lg:col-span-3 ${project.reverse ? 'lg:order-last lg:text-right' : ''}`}>
-                <div className={`flex flex-col gap-6 ${project.reverse ? 'lg:items-end' : ''}`}>
-                  <div className={`w-16 h-16 rounded-2xl ${project.iconBg} flex items-center justify-center ${project.iconColor}`}>
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <div>
-                    <span className="font-label-md text-secondary uppercase tracking-widest">{project.id} / {project.category}</span>
-                    <h2 className="font-headline-md text-primary mt-1">{project.title}</h2>
-                    <p className="font-body-md text-on-surface-variant mt-2">{project.role}</p>
-                  </div>
+              {/* Cover Image Column */}
+              <div className="w-full lg:w-[40%] h-[240px] lg:h-auto min-h-[260px] relative overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className={`w-full h-full object-cover ${project.imagePosition || 'object-center'} group-hover:scale-105 transition-transform duration-700`}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+                <div className="absolute bottom-6 left-6 right-6 text-white lg:hidden">
+                  <span className="font-label-md text-secondary-container uppercase tracking-widest text-[12px]">{project.category}</span>
+                  <h3 className="font-headline-md mt-1 text-white">{project.title}</h3>
                 </div>
               </div>
               
-              {/* Main Content */}
-              <div className="col-span-1 lg:col-span-9 bg-surface-container-lowest p-6 lg:p-12 rounded-xl shadow-sm group-hover:shadow-md transition-shadow duration-500">
-                <div className="flex flex-col gap-8 lg:gap-10">
-                  <div className="space-y-4">
-                    <h4 className="font-label-md text-primary uppercase tracking-widest border-b border-outline/10 pb-2">Situation</h4>
-                    <p className="font-body-md text-on-surface leading-relaxed">
-                      {project.situation}
-                    </p>
+              {/* Content Column */}
+              <div className="w-full lg:w-[60%] p-8 md:p-10 flex flex-col justify-between gap-8">
+                <div className="space-y-4">
+                  {/* Category, Title, Role (Desktop version) */}
+                  <div className="hidden lg:block">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`w-8 h-8 rounded-lg ${project.iconBg} flex items-center justify-center ${project.iconColor}`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="font-label-md text-secondary uppercase tracking-widest text-[12px]">{project.category}</span>
+                    </div>
+                    <h3 className="font-headline-md text-primary">{project.title}</h3>
+                    <p className="font-body-md text-on-surface-variant font-light mt-1">{project.role}</p>
                   </div>
-                  <div className="space-y-4">
-                    <h4 className="font-label-md text-primary uppercase tracking-widest border-b border-outline/10 pb-2">Approach</h4>
-                    <p className="font-body-md text-on-surface leading-relaxed">
-                      {project.approach}
-                    </p>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-label-md text-secondary uppercase tracking-widest border-b border-outline/10 pb-2">Outcome</h4>
-                    <p className="font-body-md text-on-surface leading-relaxed">
-                      {project.outcome}
-                    </p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 lg:gap-3 mt-4">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="px-3 py-1 rounded-full bg-surface-container text-on-surface-variant font-label-md text-[12px]">
-                        {tag}
-                      </span>
+
+                  {/* Summary */}
+                  <p className="font-body-md text-on-surface leading-relaxed line-clamp-3 lg:line-clamp-4">
+                    {project.situation}
+                  </p>
+                </div>
+
+                {/* Key Metrics Preview & CTA */}
+                <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-t border-outline/10 pt-6 mt-2">
+                  <div className="flex gap-4">
+                    {project.metrics.slice(0, 2).map((m, idx) => (
+                      <div key={idx} className="flex flex-col bg-surface/50 border border-outline/5 px-4 py-2.5 rounded-xl">
+                        <span className="text-xl font-bold text-secondary">{m.value}</span>
+                        <span className="text-[10px] font-label-md text-on-surface-variant uppercase tracking-wider">{m.label}</span>
+                      </div>
                     ))}
+                  </div>
+
+                  <div className="flex items-center gap-2 font-label-md text-secondary uppercase tracking-widest group-hover:text-primary transition-colors">
+                    Read Case Study
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform duration-300" />
                   </div>
                 </div>
               </div>
@@ -238,3 +362,4 @@ export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurren
     </div>
   );
 }
+
