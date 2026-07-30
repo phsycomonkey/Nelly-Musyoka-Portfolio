@@ -22,7 +22,7 @@ export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, is
       id: "02",
       category: "Hospitality",
       title: "Theron Vacation Homes",
-      image: "/assets/img/TheronVacationHomes.PNG",
+      image: "/assets/img/TheronVacationHomes.png",
       imagePosition: "object-[center_30%]",
       situation: "Guests required faster response times and a higher degree of personalized support to feel fully accommodated throughout their stay."
     },
@@ -155,10 +155,10 @@ export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, is
                 {/* Overlapping Image 1: Theron Vacation Homes Hospitality (Bottom Left) */}
                 <div 
                   className="absolute w-[60%] aspect-[4/3] -bottom-8 -left-8 rounded-2xl overflow-hidden shadow-2xl border-4 border-surface-container-low hidden sm:block cursor-zoom-in"
-                  onClick={() => onViewImage("/assets/img/TheronVacationHomes.PNG")}
+                  onClick={() => onViewImage("/assets/img/TheronVacationHomes.png")}
                 >
                   <img 
-                    src="/assets/img/TheronVacationHomes.PNG" 
+                    src="/assets/img/TheronVacationHomes.png" 
                     alt="Theron Vacation Homes" 
                     className="w-full h-full object-cover object-[center_30%]"
                   />
@@ -360,13 +360,13 @@ export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, is
           <div className="animate-ticker gap-6 flex flex-row">
             {[
               "/assets/img/Cloud Spaces.jpeg",
-              "/assets/img/TheronVacationHomes.PNG",
+              "/assets/img/TheronVacationHomes.png",
               "/assets/img/IMG_7893.jpg",
               "/assets/img/OffMarketListing.jpg",
               "/assets/img/IMG_9020.jpg",
               "/assets/img/IMG_9023.jpg",
               "/assets/img/main.png",
-              "/assets/img/main2.PNG",
+              "/assets/img/main2.png",
               "/assets/img/IMG_0999.jpg",
               "/assets/img/IMG_1112.jpg",
               "/assets/img/IMG_7891.jpg",
@@ -374,13 +374,13 @@ export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, is
               "/assets/img/IMG_8903.jpg"
             ].concat([
               "/assets/img/Cloud Spaces.jpeg",
-              "/assets/img/TheronVacationHomes.PNG",
+              "/assets/img/TheronVacationHomes.png",
               "/assets/img/IMG_7893.jpg",
               "/assets/img/OffMarketListing.jpg",
               "/assets/img/IMG_9020.jpg",
               "/assets/img/IMG_9023.jpg",
               "/assets/img/main.png",
-              "/assets/img/main2.PNG",
+              "/assets/img/main2.png",
               "/assets/img/IMG_0999.jpg",
               "/assets/img/IMG_1112.jpg",
               "/assets/img/IMG_7891.jpg",

@@ -45,7 +45,7 @@ export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurren
       iconColor: "text-secondary",
       iconBg: "bg-secondary/5",
       reverse: true,
-      image: "/assets/img/TheronVacationHomes.PNG",
+      image: "/assets/img/TheronVacationHomes.png",
       imagePosition: "object-[center_30%]",
       gallery: ["/assets/img/IMG_1112.jpg", "/assets/img/IMG_0999.jpg"],
       metrics: [
@@ -108,7 +108,7 @@ export default function CaseStudies({ activeStudyId, setActiveStudyId, setCurren
       iconColor: "text-primary",
       iconBg: "bg-primary/5",
       image: "/assets/img/Cloud Spaces.jpeg",
-      gallery: ["/assets/img/IMG_9020.jpg", "/assets/img/IMG_9023.jpg", "/assets/img/main2.PNG"],
+      gallery: ["/assets/img/IMG_9020.jpg", "/assets/img/IMG_9023.jpg", "/assets/img/main2.png"],
       metrics: [
         { value: "95%", label: "Client Retention" },
         { value: "<10m", label: "Average Response" },
