@@ -84,7 +84,7 @@ export default function Resume() {
               Professional Resume
             </h1>
             <p className="font-body-lg text-on-surface-variant mt-6 max-w-2xl">
-              Helping businesses grow through operational support, client relations, administrative efficiency, and events coordination — with an entrepreneurial edge. A versatile and results-driven professional with over five years of experience based in Dubai, spanning real estate operations, hospitality, Admissions administration, and executive client support.
+              Helping businesses grow through operational support, client relations, administrative efficiency, and events coordination, with an entrepreneurial edge. A versatile and results-driven professional with over five years of experience based in Dubai, spanning real estate operations, hospitality, Admissions administration, and executive client support.
             </p>
           </motion.div>
           

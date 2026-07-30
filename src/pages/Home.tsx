@@ -199,13 +199,13 @@ export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, is
                 className="font-body-md text-on-surface-variant leading-relaxed space-y-4"
               >
                 <p>
-                  I am a versatile and results-driven professional based in Dubai with over five years of experience spanning real estate operations, client relations, administrative support, events coordination, and freelance services. My career has equipped me with hands-on expertise across diverse industries including coworking workspaces, luxury hospitality, specialized education, and sales operations.
+                  My professional focus is centered on managing environments where operational efficiency and high-standard customer service intersect. With hands-on experience across flagship coworking workspaces, luxury hospitality portfolios, admissions administration, and executive real estate support, I specialize in streamlining calendar and communication workflows while building strong client relationships.
                 </p>
                 <p>
                   Currently, as a <strong>Client Relations Specialist at Cloud Spaces</strong>, I lead daily client engagement, conduct center tours, manage CRM pipelines, and oversee onboarding cycles for coworking members and corporate office suites at our flagship Dubai Mall Fountain Views location.
                 </p>
                 <p>
-                  Throughout my journey—whether optimizing listings and calendars as an <strong>Executive Operations Manager at Off-Market Listing Dubai</strong>, coordinating guest relations for <strong>Theron Vacation Homes</strong>, or managing student admissions and front desk coordination at <strong>Al Noor Rehabilitation & Welfare Association</strong>—I have committed myself to operational efficiency, proactive problem-solving, and building high-trust partnerships.
+                  Throughout my journey, whether optimizing listings and calendars as an <strong>Executive Operations Manager at Off-Market Listing Dubai</strong>, coordinating guest relations for <strong>Theron Vacation Homes</strong>, or managing student admissions and front desk coordination at <strong>Al Noor Rehabilitation & Welfare Association</strong>, I have committed myself to operational efficiency, proactive problem-solving, and building high-trust partnerships.
                 </p>
               </motion.div>
               
