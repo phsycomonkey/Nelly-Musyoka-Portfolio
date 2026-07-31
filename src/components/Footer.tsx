@@ -16,7 +16,7 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             />
             <h2 className="font-headline-md text-primary mb-2 md:hidden">Nelly Nzula Musyoka</h2>
             <p className="text-on-surface-variant font-body-md leading-relaxed">
-              Steady expertise and approachable warmth in strategic design and leadership. Delivering premium, relationship-first digital experiences.
+              Steady expertise and professional service in workspace operations, hospitality guest relations, and client services. Based in Dubai, UAE.
             </p>
           </div>
           
@@ -32,8 +32,8 @@ export default function Footer({ setCurrentPage }: FooterProps) {
             <div className="flex flex-col gap-4">
               <h4 className="font-label-md uppercase tracking-widest text-primary">Connect</h4>
               <nav className="flex flex-col gap-2">
-                <a href="#" className="text-on-surface-variant hover:text-primary transition-colors">LinkedIn</a>
-                <a href="#" className="text-on-surface-variant hover:text-primary transition-colors">Email</a>
+                <a href="https://www.linkedin.com/in/nelly-nzula-7389a272/" target="_blank" rel="noopener noreferrer" className="text-on-surface-variant hover:text-primary transition-colors">LinkedIn</a>
+                <a href="mailto:Nmusyoka2023@gmail.com" className="text-on-surface-variant hover:text-primary transition-colors">Email</a>
               </nav>
             </div>
           </div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { Calendar, Mail, Linkedin, ArrowRight, CheckCircle2 } from 'lucide-react';
 
@@ -25,12 +25,12 @@ export default function Contact() {
               animate={{ opacity: 1, y: 0 }}
               className="w-full lg:w-7/12"
             >
-              <span className="font-label-md text-secondary uppercase tracking-[0.2em] mb-4 lg:mb-6 block">Availability: Q3/Q4 2024</span>
+              <span className="font-label-md text-secondary uppercase tracking-[0.2em] mb-4 lg:mb-6 block">Availability: Open for Opportunities</span>
               <h1 className="font-display-lg-mobile lg:font-display-lg text-primary mb-6 lg:mb-8 max-w-2xl leading-tight">
                 Let’s craft something <span className="text-secondary italic font-normal">meaningful</span> together.
               </h1>
               <p className="font-body-lg text-on-surface-variant max-w-xl leading-relaxed">
-                Whether you’re looking to solve a complex product challenge or simply want to discuss the future of humanist design, I’m always open to thoughtful conversations.
+                Whether you’re looking to optimize workspace operations, elevate client relations, or need professional freelance event and administrative support, I am always open to professional conversations.
               </p>
             </motion.div>
             
@@ -42,7 +42,7 @@ export default function Contact() {
             >
               <div className="flex items-center gap-4 text-primary">
                 <div className="h-[1px] w-12 bg-primary/30"></div>
-                <span className="font-label-md uppercase tracking-widest">Based in Kenya • Remote Worldwide</span>
+                <span className="font-label-md uppercase tracking-widest">Based in Dubai • UAE</span>
               </div>
             </motion.div>
           </div>
@@ -124,11 +124,11 @@ export default function Contact() {
                     <p className="font-body-md text-on-surface-variant group-hover:text-on-primary/80">Nmusyoka2023@gmail.com</p>
                   </div>
                 </a>
-                <a href="#" className="group p-6 bg-surface-container rounded-xl flex flex-col gap-4 hover:bg-primary transition-colors duration-300">
+                <a href="https://www.linkedin.com/in/nelly-nzula-7389a272/" target="_blank" rel="noopener noreferrer" className="group p-6 bg-surface-container rounded-xl flex flex-col gap-4 hover:bg-primary transition-colors duration-300">
                   <Linkedin className="w-6 h-6 text-secondary group-hover:text-on-primary transition-colors" />
                   <div>
                     <h4 className="font-label-md text-primary group-hover:text-on-primary uppercase tracking-wider mb-1">LinkedIn</h4>
-                    <p className="font-body-md text-on-surface-variant group-hover:text-on-primary/80">/in/nellynzula</p>
+                    <p className="font-body-md text-on-surface-variant group-hover:text-on-primary/80">/in/nelly-nzula-7389a272</p>
                   </div>
                 </a>
               </div>
@@ -149,7 +149,7 @@ export default function Contact() {
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="bg-surface p-4 lg:p-6 rounded-full shadow-2xl flex items-center gap-4 animate-bounce pointer-events-auto cursor-default">
             <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-            <span className="font-label-md text-primary">Working from Nairobi (GMT+3)</span>
+            <span className="font-label-md text-primary">Working from Dubai (GMT+4)</span>
           </div>
         </div>
       </section>
