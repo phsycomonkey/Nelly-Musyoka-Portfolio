@@ -9,11 +9,9 @@ export default function Footer({ setCurrentPage }: FooterProps) {
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           
           <div className="max-w-md text-center md:text-left mx-auto md:mx-0">
-            <img 
-               alt="Logo" 
-               className="h-12 w-auto object-contain mb-6 mx-auto md:mx-0" 
-               src="https://lh3.googleusercontent.com/aida/AP1WRLsC-Fda97V4UJez8Iz95Q_HBofMyZfv7nI4qKJpxjLfpce4oOQpPxRNs0A9Vz76nG4Svq8zaTdQMRAzaAqqy_OOTJNRGAFg-iTnJtLkRt3J61vUtR2RUTc3usZvdm46TIw-qPtD10G2Ctpq8oJHGU0VYCmhKreZ8D7yEXIT44PIp4qRIA-oRZ76pQqYIP-a88GUfik0h5ZSi8OY3E2Mvc1ysOcm1QpMPZCBSynY42JvV5mXNbQbZSsau1M"
-            />
+            <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-display font-bold text-base tracking-tight shadow-md mb-6 mx-auto md:mx-0 select-none shrink-0">
+              NN
+            </div>
             <h2 className="font-headline-md text-primary mb-2 md:hidden">Nelly Nzula Musyoka</h2>
             <p className="text-on-surface-variant font-body-md leading-relaxed">
               Steady expertise and professional service in workspace operations, hospitality guest relations, and client services. Based in Dubai, UAE.

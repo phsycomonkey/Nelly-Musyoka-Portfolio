@@ -22,11 +22,9 @@ export default function Navbar({ currentPage, setCurrentPage }: NavbarProps) {
             setCurrentPage('home');
           }}
         >
-          <img 
-             alt="Logo" 
-             className="h-8 w-auto object-contain" 
-             src="https://lh3.googleusercontent.com/aida/AP1WRLsC-Fda97V4UJez8Iz95Q_HBofMyZfv7nI4qKJpxjLfpce4oOQpPxRNs0A9Vz76nG4Svq8zaTdQMRAzaAqqy_OOTJNRGAFg-iTnJtLkRt3J61vUtR2RUTc3usZvdm46TIw-qPtD10G2Ctpq8oJHGU0VYCmhKreZ8D7yEXIT44PIp4qRIA-oRZ76pQqYIP-a88GUfik0h5ZSi8OY3E2Mvc1ysOcm1QpMPZCBSynY42JvV5mXNbQbZSsau1M"
-          />
+          <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-display font-bold text-xs tracking-tight shadow-sm select-none shrink-0">
+            NN
+          </div>
           <span className="font-headline-sm text-primary tracking-tight hidden md:block">Nelly Nzula Musyoka</span>
           <span className="font-headline-sm text-on-surface md:hidden">Home</span>
         </a>
