@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'motion/react';
 import { Heart, TrendingUp, Layers, ArrowRight } from 'lucide-react';
 
@@ -9,6 +10,7 @@ interface HomeProps {
 }
 
 export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, isImageExpanded }: HomeProps) {
+  const [showAllGalleryPhotos, setShowAllGalleryPhotos] = useState(false);
 
   const featuredProjects = [
     {
@@ -41,6 +43,144 @@ export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, is
       situation: "Coordinating property viewings and managing client communications lacked a unified process, risking costly delays throughout the sales cycle."
     }
   ];
+
+  const galleryImages = [
+    {
+      src: "/assets/img/new/DSC00525.jpg.jpeg",
+      alt: "Nelly at Cloud Spaces",
+      itemClass: "md:col-span-2 md:row-span-2",
+      imageClass: "object-[center_34%]"
+    },
+    {
+      src: "/assets/img/new/DSC00621.jpg.jpeg",
+      alt: "Professional portrait of Nelly",
+      itemClass: "md:row-span-2",
+      imageClass: "object-[center_18%]"
+    },
+    {
+      src: "/assets/img/new/JI2_0687.JPG.jpeg",
+      alt: "Nelly in a helicopter cabin",
+      itemClass: "md:col-span-2",
+      imageClass: "object-[center_42%]"
+    },
+    {
+      src: "/assets/img/new/JI2_0648.JPG.jpeg",
+      alt: "Nelly walking outdoors in a blue suit",
+      itemClass: "",
+      imageClass: "object-[center_30%]"
+    },
+    {
+      src: "/assets/img/new/DSC00616.jpg.jpeg",
+      alt: "Seated professional portrait of Nelly",
+      itemClass: "md:row-span-2",
+      imageClass: "object-[center_16%]"
+    },
+    {
+      src: "/assets/img/new/JI2_0649.JPG.jpeg",
+      alt: "Nelly outdoors with phone in hand",
+      itemClass: "",
+      imageClass: "object-[center_28%]"
+    },
+    {
+      src: "/assets/img/new/JI2_0693.JPG.jpeg",
+      alt: "Nelly smiling inside a helicopter cabin",
+      itemClass: "md:col-span-2",
+      imageClass: "object-[center_42%]"
+    },
+    {
+      src: "/assets/img/Cloud Spaces.jpeg",
+      alt: "Cloud Spaces workspace",
+      itemClass: "md:col-span-2",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/TheronVacationHomes.png",
+      alt: "Theron Vacation Homes",
+      itemClass: "",
+      imageClass: "object-[center_30%]"
+    },
+    {
+      src: "/assets/img/OffMarketListing.jpg",
+      alt: "Off Market Listing",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/claude3.jpeg",
+      alt: "Portfolio image",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/claude2.jpeg",
+      alt: "Portfolio image",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/main.png",
+      alt: "Nelly portrait",
+      itemClass: "md:row-span-2",
+      imageClass: "object-[center_20%]"
+    },
+    {
+      src: "/assets/img/main2.png",
+      alt: "Nelly portrait",
+      itemClass: "",
+      imageClass: "object-[center_20%]"
+    },
+    {
+      src: "/assets/img/IMG_9023.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/IMG_9020.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/IMG_8903.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/IMG_7952.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/IMG_7893.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/IMG_7891.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/IMG_1112.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    },
+    {
+      src: "/assets/img/IMG_0999.jpg",
+      alt: "Portfolio photo",
+      itemClass: "",
+      imageClass: "object-center"
+    }
+  ];
+
+  const mobilePreviewCount = 6;
+  const mobileHiddenCount = galleryImages.length - mobilePreviewCount;
 
   const fadeIn = {
     hidden: { opacity: 0, y: 20 },
@@ -329,77 +469,66 @@ export default function Home({ setCurrentPage, setActiveStudyId, onViewImage, is
         </div>
       </section>
 
-      {/* Ticker Photo Gallery Section */}
-      <section className="w-full py-12 bg-surface-container-low overflow-hidden border-y border-outline/5 relative">
-        <style dangerouslySetInnerHTML={{__html: `
-          @keyframes ticker {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-          }
-          .animate-ticker {
-            display: flex;
-            width: max-content;
-            animation: ticker 45s linear infinite;
-            animation-play-state: ${isImageExpanded ? 'paused' : 'running'};
-          }
-          .animate-ticker:hover {
-            animation-play-state: paused;
-          }
-        `}} />
+      {/* Gallery Section */}
+      <section className="w-full py-16 lg:py-24 bg-surface-container-low border-y border-outline/5">
+        <div className="max-w-[1200px] mx-auto px-5 md:px-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeIn}
+            className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-6 mb-10 lg:mb-14"
+          >
+            <div className="max-w-2xl">
+              <span className="font-label-md text-secondary uppercase tracking-[0.2em] block mb-3">Gallery</span>
+              <h2 className="font-headline-md text-primary mb-4">Professional Presence in Motion</h2>
+              <p className="font-body-md text-on-surface-variant">
+                A closer look at client-facing moments, polished workspaces, and the calm confidence behind Nelly's operations and relationship-led work.
+              </p>
+            </div>
+            <span className="font-label-md text-primary/50 uppercase tracking-widest">{galleryImages.length} photos</span>
+          </motion.div>
 
-        <div className="max-w-[1200px] mx-auto px-5 md:px-6 mb-8 text-center md:text-left">
-          <span className="font-label-md text-secondary uppercase tracking-[0.2em] block mb-2">Visual Gallery</span>
-          <h2 className="font-headline-md text-primary">Life at Work & Collaboration</h2>
-        </div>
-
-        <div className="relative w-full flex overflow-hidden">
-          {/* Gradients to fade edges */}
-          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-surface-container-low to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-surface-container-low to-transparent z-10 pointer-events-none"></div>
-
-          <div className="animate-ticker gap-6 flex flex-row">
-            {[
-              "/assets/img/Cloud Spaces.jpeg",
-              "/assets/img/TheronVacationHomes.png",
-              "/assets/img/IMG_7893.jpg",
-              "/assets/img/OffMarketListing.jpg",
-              "/assets/img/IMG_9020.jpg",
-              "/assets/img/IMG_9023.jpg",
-              "/assets/img/main.png",
-              "/assets/img/main2.png",
-              "/assets/img/IMG_0999.jpg",
-              "/assets/img/IMG_1112.jpg",
-              "/assets/img/IMG_7891.jpg",
-              "/assets/img/IMG_7952.jpg",
-              "/assets/img/IMG_8903.jpg"
-            ].concat([
-              "/assets/img/Cloud Spaces.jpeg",
-              "/assets/img/TheronVacationHomes.png",
-              "/assets/img/IMG_7893.jpg",
-              "/assets/img/OffMarketListing.jpg",
-              "/assets/img/IMG_9020.jpg",
-              "/assets/img/IMG_9023.jpg",
-              "/assets/img/main.png",
-              "/assets/img/main2.png",
-              "/assets/img/IMG_0999.jpg",
-              "/assets/img/IMG_1112.jpg",
-              "/assets/img/IMG_7891.jpg",
-              "/assets/img/IMG_7952.jpg",
-              "/assets/img/IMG_8903.jpg"
-            ]).map((imgUrl, index) => (
-              <div 
-                key={index}
-                className="w-[280px] h-[200px] rounded-2xl overflow-hidden shadow-sm border border-outline/5 flex-shrink-0 cursor-zoom-in hover:shadow-md transition-shadow duration-300 relative group"
-                onClick={() => onViewImage(imgUrl)}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 md:auto-rows-[230px] gap-4 lg:gap-5">
+            {galleryImages.map((image, index) => (
+              <motion.button
+                key={image.src}
+                type="button"
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                onClick={() => onViewImage(image.src)}
+                className={`group relative min-h-[260px] md:min-h-0 overflow-hidden rounded-xl border border-outline/10 bg-surface shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in ${!showAllGalleryPhotos && index >= mobilePreviewCount ? 'hidden md:block' : ''} ${image.itemClass}`}
+                aria-label={`View ${image.alt}`}
               >
-                <img 
-                  src={imgUrl} 
-                  alt={`Nelly portfolio image ${index}`} 
-                  className="w-full h-full object-cover object-[center_35%] filter grayscale-[15%] group-hover:grayscale-0 transition-all duration-500"
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  loading="lazy"
+                  className={`w-full h-full object-cover ${image.imageClass} group-hover:scale-105 transition-transform duration-700`}
                 />
-              </div>
+                <span className="absolute inset-0 bg-gradient-to-t from-primary/35 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                {!showAllGalleryPhotos && index === mobilePreviewCount - 1 && mobileHiddenCount > 0 && (
+                  <span className="md:hidden absolute inset-0 bg-primary/70 backdrop-blur-[2px] flex items-center justify-center text-on-primary font-headline-sm">
+                    +{mobileHiddenCount} more
+                  </span>
+                )}
+              </motion.button>
             ))}
           </div>
+
+          {mobileHiddenCount > 0 && (
+            <div className="md:hidden mt-6">
+              <button
+                type="button"
+                onClick={() => setShowAllGalleryPhotos((value) => !value)}
+                className="w-full px-6 py-4 bg-secondary text-on-primary font-label-md rounded-lg shadow-sm transition-all duration-300"
+              >
+                {showAllGalleryPhotos ? 'SHOW FEWER PHOTOS' : `SHOW ALL ${galleryImages.length} PHOTOS`}
+              </button>
+            </div>
+          )}
         </div>
       </section>
 
