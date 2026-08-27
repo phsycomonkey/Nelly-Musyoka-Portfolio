@@ -4,6 +4,8 @@ import { X } from 'lucide-react';
 import Navbar from './components/Navbar';
 import MobileNav from './components/MobileNav';
 import Footer from './components/Footer';
+import CustomCursor from './components/CustomCursor';
+import AnimatedBackground from './components/AnimatedBackground';
 import Home from './pages/Home';
 import CaseStudies from './pages/CaseStudies';
 import Resume from './pages/Resume';
@@ -13,6 +15,7 @@ export default function App() {
   const [currentPage, setCurrentPage] = useState('home');
   const [activeStudyId, setActiveStudyId] = useState<string | null>(null);
   const [expandedImage, setExpandedImage] = useState<string | null>(null);
+  const [isNavigating, setIsNavigating] = useState(false);
   
   const scrollPositions = useRef<{ [key: string]: number }>({});
   const previousPage = useRef<string>('home');
@@ -20,7 +23,10 @@ export default function App() {
 
   useEffect(() => {
     currentPageRef.current = currentPage;
-  }, [currentPage]);
+    setIsNavigating(true);
+    const timer = setTimeout(() => setIsNavigating(false), 400);
+    return () => clearTimeout(timer);
+  }, [currentPage, activeStudyId]);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -98,7 +104,14 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-surface">
+    <div className="flex flex-col min-h-screen bg-surface relative overflow-x-hidden">
+      <CustomCursor />
+      <AnimatedBackground />
+      {/* Clean Executive Top Progress Bar Indicator */}
+      {isNavigating && (
+        <div className="fixed top-0 left-0 right-0 h-0.5 bg-secondary z-[10000] transition-all duration-300" />
+      )}
+      
       <Navbar currentPage={currentPage} setCurrentPage={handlePageChange} />
       
       <main className="flex-grow pt-16 md:pt-20 pb-20 md:pb-0 relative z-10">

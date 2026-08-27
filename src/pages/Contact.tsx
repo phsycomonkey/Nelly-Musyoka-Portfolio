@@ -1,9 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Calendar, Mail, Linkedin, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Calendar, Mail, Linkedin, ArrowRight, CheckCircle2, Copy, Clock, Sparkles } from 'lucide-react';
 
 export default function Contact() {
   const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState<string>('Workspace Operations');
+  const [dubaiTime, setDubaiTime] = useState<string>('');
+
+  useEffect(() => {
+    const updateTime = () => {
+      const options: Intl.DateTimeFormatOptions = {
+        timeZone: 'Asia/Dubai',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true
+      };
+      setDubaiTime(new Intl.DateTimeFormat('en-US', options).format(new Date()));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText('nellymusyoka90@gmail.com');
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2500);
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,11 +63,40 @@ export default function Contact() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="hidden lg:block lg:w-5/12 pb-4"
+              className="w-full lg:w-5/12 space-y-4"
             >
-              <div className="flex items-center gap-4 text-primary">
-                <div className="h-[1px] w-12 bg-primary/30"></div>
-                <span className="font-label-md uppercase tracking-widest">Based in Dubai • UAE</span>
+              {/* Live Dubai Clock Card */}
+              <div className="p-5 rounded-2xl bg-surface-container-low border border-outline/10 shadow-sm flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+                    <Clock className="w-5 h-5 animate-pulse" />
+                  </div>
+                  <div>
+                    <span className="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant block">Dubai Local Time (GST)</span>
+                    <span className="font-display-xs text-primary font-bold">{dubaiTime || '12:00:00 PM'}</span>
+                  </div>
+                </div>
+                <span className="px-3 py-1 rounded-full bg-secondary/10 text-secondary font-label-md text-[11px]">UTC +4</span>
+              </div>
+
+              {/* 1-Click Copy Email Card */}
+              <div 
+                onClick={handleCopyEmail}
+                className="p-5 rounded-2xl bg-surface border border-secondary/20 hover:border-secondary/50 shadow-md cursor-pointer transition-all duration-300 flex items-center justify-between group"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/5 flex items-center justify-center text-primary group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="font-label-md text-[11px] uppercase tracking-widest text-on-surface-variant block">Direct Email</span>
+                    <span className="font-body-md text-primary font-semibold">nellymusyoka90@gmail.com</span>
+                  </div>
+                </div>
+                <button className="px-3 py-1.5 rounded-lg bg-surface-container-high text-primary font-label-md text-xs flex items-center gap-1.5 group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+                  {copiedEmail ? <CheckCircle2 className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
+                  <span>{copiedEmail ? 'Copied!' : 'Copy'}</span>
+                </button>
               </div>
             </motion.div>
           </div>
@@ -140,16 +194,22 @@ export default function Contact() {
 
 
 
-      {/* Map Graphic (Visual Only) */}
-      <section className="w-full h-[300px] lg:h-[400px] relative hidden md:block">
-        <div 
-          className="w-full h-full grayscale hover:grayscale-0 transition-all duration-1000 opacity-70" 
-          style={{ backgroundImage: "url('https://lh3.googleusercontent.com/aida-public/AB6AXuBL-BGKLwxjUhHMSOocN2DIJiW45xKl71ZUar9ivskSf6fZMpkJGBcY7u4SYpiOPdaeh4R-z10v193JmJitrMfZMnhN0e120lGvpvaVmZpDl44byNdP_KJ5wx3pgquEC7FD2Q4ZHTqPwR6UMuCifLpodYMjRsbv-X_O-oLxceg5CY7WUGHMpsLnYv9zNFUxnDrEi9qRB6G31J_y86xG1lmuFbDYNSXMkih71YEVbr0niCmPo7FstCD3tuKWWgKOFF1DYkFDWIy1LzU')" }}
-        ></div>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="bg-surface p-4 lg:p-6 rounded-full shadow-2xl flex items-center gap-4 animate-bounce pointer-events-auto cursor-default">
+      {/* Interactive Dubai, UAE Location Map Section */}
+      <section className="w-full h-[320px] lg:h-[400px] relative overflow-hidden rounded-3xl border border-outline/10 shadow-sm mt-8">
+        <iframe
+          title="Dubai UAE Location Map"
+          src="https://maps.google.com/maps?q=Downtown%20Dubai,%20United%20Arab%20Emirates&t=&z=12&ie=UTF8&iwloc=&output=embed"
+          className="w-full h-full border-0 grayscale hover:grayscale-0 transition-all duration-700 opacity-80 hover:opacity-100"
+          loading="lazy"
+          allowFullScreen
+        ></iframe>
+        <div className="absolute bottom-6 left-6 pointer-events-none">
+          <div className="bg-surface/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl border border-secondary/20 flex items-center gap-3 pointer-events-auto">
             <div className="w-3 h-3 bg-secondary rounded-full animate-pulse"></div>
-            <span className="font-label-md text-primary">Working from Dubai (GMT+4)</span>
+            <div>
+              <span className="font-label-md text-xs uppercase tracking-widest text-secondary font-bold block">Based in Dubai, UAE</span>
+              <span className="font-body-md text-xs text-primary font-semibold">Downtown Dubai & Fountain Views • GST (UTC+4)</span>
+            </div>
           </div>
         </div>
       </section>

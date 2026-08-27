@@ -71,7 +71,7 @@ export default function CaseStudies() {
       role: "Guest & Client Relations",
       image: "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?auto=format&fit=crop&q=80&w=800",
       situation: "We needed to consistently improve the client experience by offering better communication and faster service delivery.",
-      approach: "I stayed proactive—regularly checking in with clients, understanding their needs, and working with internal teams to resolve issues before they became problems.",
+      approach: "I stayed proactive, regularly checking in with clients, understanding their needs, and working with internal teams to resolve issues before they became problems.",
       outcome: "My efforts strengthened client relationships, improved overall satisfaction, and created a highly positive and welcoming workspace environment.",
       tags: ["CLIENT RELATIONS", "SERVICE DELIVERY"],
       icon: BarChart3,
